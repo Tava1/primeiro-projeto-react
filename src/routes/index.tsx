@@ -7,7 +7,14 @@ import Repository from '../pages/Repository';
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Dashboard} />
-    <Route path="/repository" component={Repository} />
+    {/*
+      /:repository+ -> Indica o parâmetro de rota para buscar um determinadado item.
+      Para buscar um repositorio na API devemos utilizar -> repository/owner
+      porem a nossa aplicacao entende que /owner é um nova rota.
+      Para que aplicação entenda que o parâmetro é estritamente: repository/owner
+      onde a barra nao representa uma rota, e sim parte do parâmetro devemos passar a notação "+".
+    */}
+    <Route path="/repositories/:repository+" component={Repository} />
   </Switch>
 );
 
